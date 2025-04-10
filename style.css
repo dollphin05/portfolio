@@ -1,0 +1,22 @@
+body {
+  font-family: sans-serif;
+  margin: 20px;
+}
+
+header, footer {
+  background-color: #eee;
+  padding: 10px;
+  text-align: center;
+}
+
+section {
+  margin-bottom: 30px;
+}
+
+img {
+  border-radius: 10px;
+}
+
+nav a {
+  margin: 0 10px;
+}
