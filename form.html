@@ -47,4 +47,38 @@
         <option>2학년</option>
         <option>3학년</option>
         <option>4학년</option
+                     </select>
+
+      좋아하는 색:  
+      <input list="colors" placeholder="색을 선택하거나 직접 입력">
+      <datalist id="colors">
+        <option value="빨강">
+        <option value="노랑">
+        <option value="파랑">
+        <option value="초록">
+      </datalist>
+    </fieldset>
+
+    <fieldset>
+      <legend>관심 정보</legend>
+
+      관심사(중복 선택 가능):<br>
+      <input type="checkbox" id="coding"> 코딩  
+      <input type="checkbox" id="design"> 디자인  
+      <input type="checkbox" id="music"> 음악<br><br>
+
+      좋아하는 동물:<br>
+      <input type="radio" name="animal" value="강아지"> 강아지  
+      <input type="radio" name="animal" value="고양이"> 고양이  
+      <input type="radio" name="animal" value="햄스터"> 햄스터<br><br>
+
+      하고 싶은 말:  
+      <textarea rows="4" placeholder="자유롭게 적어주세요"></textarea>
+    </fieldset>
+
+    <button type="submit">제출</button>
+  </form>
+
+</body>
+</html>
 
