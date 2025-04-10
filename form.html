@@ -1,49 +1,50 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="author" content="너의 이름" />
-  <meta name="description" content="나의 포트폴리오 페이지입니다." />
-  <title>나의 포트폴리오</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>정보 입력 폼</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 30px;
+    }
+    form {
+      display: inline-block;
+      text-align: left;
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    fieldset {
+      margin-bottom: 20px;
+    }
+    input, select, textarea {
+      width: 100%;
+      margin-top: 5px;
+      margin-bottom: 15px;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>나의 포트폴리오</h1>
-    <nav>
-      <a href="#profile">프로필</a>
-      <a href="#projects">프로젝트</a>
-      <a href="#contact">연락처</a>
-    </nav>
-  </header>
 
-  <main>
-    <section id="profile">
-      <h2>👤 프로필</h2>
-      <img src="media/profile.png" alt="프로필 이미지" width="150" />
-      <p>안녕하세요! 저는 웹 개발을 배우는 학생입니다.</p>
-    </section>
+  <h2>📋 정보 입력 폼</h2>
 
-    <section id="projects">
-      <h2>📁 프로젝트</h2>
-      <ol>
-        <li>
-          <strong>덕성 식당 웹페이지</strong><br />
-          <a href="https://너의아이디.github.io/duksung_diner/">[웹페이지 보기]</a> |
-          <a href="https://github.com/너의아이디/duksung_diner">[코드 보기]</a>
-        </li>
-      </ol>
-    </section>
+  <form>
+    <fieldset>
+      <legend>기본 정보</legend>
+      
+      이름:  
+      <input type="text" placeholder="이름을 입력하세요" required>
 
-    <section id="contact">
-      <h2>📫 연락처</h2>
-      <p>📧 이메일: example@example.com</p>
-      <p>🔗 <a href="https://github.com/너의아이디">GitHub 프로필</a></p>
-    </section>
-  </main>
+      이메일:  
+      <input type="email" placeholder="이메일을 입력하세요" required>
 
-  <footer>
-    <p>© 2025 너의 이름</p>
-  </footer>
-</body>
-</html>
+      학년 선택:  
+      <select required>
+        <option value="">-- 선택하세요 --</option>
+        <option>1학년</option>
+        <option>2학년</option>
+        <option>3학년</option>
+        <option>4학년</option
+
