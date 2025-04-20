@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="윤수빈">
+  <meta name="description" content="윤수빈 인터넷기초 웹폼 과제">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>폼 입력</title>
+  <style>
+    h3 {
+      text-align: center;
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      margin: 10px;
+      padding: 10px;
+    }
+    #formbox {
+      background-color: #f5f5dc;
+      width: 320px;
+      margin: 10px;
+      padding: 15px;
+    }
+    fieldset {
+      margin-bottom: 15px;
+      padding: 10px;
+    }
+    button[type="submit"] {
+      margin-top: 10px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+  <script>
+    function submitForm(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const color = document.getElementById("color").value;
+
+      const ck1 = document.getElementById("ck1").checked ? document.getElementById("ck1").value : "";
+      const ck2 = document.getElementById("ck2").checked ? document.getElementById("ck2").value : "";
+      const ck3 = document.getElementById("ck3").checked ? document.getElementById("ck3").value : "";
+      const checkboxes = [ck1, ck2, ck3].filter(Boolean).join(", ");
+
+      let radio = "";
+      if (document.getElementById("rd1").checked) radio = document.getElementById("rd1").value;
+      else if (document.getElementById("rd2").checked) radio = document.getElementById("rd2").value;
+      else if (document.getElementById("rd3").checked) radio = document.getElementById("rd3").value;
+
+      const experience = document.getElementById("experience").value;
+      const message = document.getElementById("message").value;
+
+      fetch("링크...", {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: `name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&color=${encodeURIComponent(color)}&checkboxes=${encodeURIComponent(checkboxes)}&radio=${encodeURIComponent(radio)}&experience=${encodeURIComponent(experience)}&message=${encodeURIComponent(message)}`
+      }).then(() => {
+        alert("제출 완료!");
+      }).catch(error => {
+        alert("전송 실패: " + error.message);
+      });
+    }
+  </script>
+</head>
+<body>
+
+  <h3>웹 폼 입력</h3>
+  <div class="container">
+    <div id="formbox">
+      <form onsubmit="submitForm(event)">
+        <fieldset>
+          <legend>기본 정보</legend>
+
+          <label for="name">이름:</label><br>
+          <input type="text" id="name" name="name" placeholder="이름을 입력하세요." required><br><br>
+
+          <label for="email">이메일:</label><br>
+          <input type="email" id="email" name="email" placeholder="aaa@duksung.ac.kr" required><br><br>
+
+          <label for="color">좋아하는 색:</label><br>
+          <input list="colors" id="color" name="color" placeholder="색을 입력하거나 선택하세요.">
+          <datalist id="colors">
+            <option value="빨강">
+            <option value="파랑">
+            <option value="초록">
+          </datalist>
+        </fieldset>
+
+        <fieldset>
+          <legend>설문 조사</legend>
+
+          관심 동물:<br>
+          <input type="checkbox" id="ck1" value="강아지">강아지<br>
+          <input type="checkbox" id="ck2" value="고양이">고양이<br>
+          <input type="checkbox" id="ck3" value="물고기">물고기<br><br>
+
+          현재 상태:<br>
+          <input type="radio" id="rd1" name="status" value="행복">행복
+          <input type="radio" id="rd2" name="status" value="우울">우울
+          <input type="radio" id="rd3" name="status" value="피곤">피곤<br><br>
+
+          과제 소요 시간:<br>
+          <select id="experience">
+            <option value="없음">없음</option>
+            <option value="1년 미만">1시간 미만</option>
+            <option value="1년 이상">1시간 이상</option>
+          </select><br><br>
+
+          하고 싶은 말:<br>
+          <textarea id="message" rows="4" placeholder="자유롭게 입력하세요."></textarea>
+        </fieldset>
+
+        <button type="submit">제출</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p style="text-align: center;">제작자: 윤수빈 | 이메일: ysubin0513@gmail.com</p>
+  </footer>
+
+</body>
+</html>
